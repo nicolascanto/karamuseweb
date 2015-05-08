@@ -1,0 +1,30 @@
+
+/*CSS para colores*/
+.celeste{
+	color:#006F9B;
+}
+.rojo{
+	color:red;
+}
+.celeste-claro{
+	color:#72FBFF;
+}
+/*fin CSS para colores*/
+
+/*hacer las tablas scrolleables*/
+.table-fixed thead {
+		  width: 97%;
+		}
+		.table-fixed tbody {
+		  height: 230px;
+		  overflow-y: auto;
+		  width: 100%;
+		}
+		.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+		  display: block;
+		}
+		.table-fixed tbody td, .table-fixed thead > tr> th {
+		  float: left;
+		  border-bottom-width: 0;
+		}
+/*fin hacer las tablas scrolleables*/
