@@ -16,7 +16,11 @@
 
 		//redireccionamos al index para iniciar sesion
 		header('Location:index.php');
-	}
+	}	
+	
+	$e = $_SESSION['emailUser']; 
+	// echo "<script>console.log('esto es email:'".$e.")</script>";
+	echo '<script languaje="JavaScript"> var e="'.$e.'";</script>';
 
 ?>
 <!DOCTYPE html>
@@ -30,6 +34,18 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/index.css">
+	<script src="js/admin.js"></script>
+	<script languaje="JavaScript">
+		window.onload = function(){
+			admin(e);
+			// function admin(email){
+			// 	var email = email;
+			// 	console.log("email: "+email);
+			// }
+
+		}
+	</script>
+
 	<style>
 		body{
 			padding-top:80px;
@@ -44,8 +60,8 @@
 
 	<title>Karamuse Administrador</title>
 </head>
-<body>
-	<div class="container">
+<body class="bg-gris">
+	<div class="container ">
 		<header>		
 				<nav class="navbar navbar-inverse navbar-fixed-top">
 					<div class="container-fluid">
@@ -63,43 +79,34 @@
 						<div class="collapse navbar-collapse" id="navbar-1">
 							<ul class="nav navbar-nav">
 
-								<li role="presentation" class="active">
-									<a href="pedidos.html" id="ir_pedidos"><span class="glyphicon glyphicon-home"></span> Pedidos<span class="badge"> 0</span></a>
+								<li role="presentation">
+									<a href="pedidos.html" id="ir_pedidos"><span class="txt-celeste-claro"><span class="glyphicon glyphicon-home"></span> Pedidos<span class="badge"> 0</span></span></a>
 								</li>
-
-								<li><a href="agregar_pedido.html"><span class="glyphicon glyphicon-plus"></span> Agregar pedido</a>
-								</li>
-
-								<li class="dropdown">
+								<li role="presentation">
 									<a href="admin_catalog" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-										<span class="glyphicon glyphicon-pencil"></span> Admin. catálogo <span class="caret"></span>
+										<span class="glyphicon glyphicon-pencil"></span> Administrar catálogo
 									</a>
-									<ul class="dropdown-menu" role="menu">							            
-							            <li><a href="agregar_karaoke_catalogo.html">Agregar</a></li>
-							            <li><a href="actualizar_karaoke_catalogo.html">Actualizar</a></li>
-							            <li class="divider"></li>
-							            <li><a href="eliminar_karaoke_catalogo.html">Eliminar</a></li>							            
-							        </ul>								
+																	
 								</li>
 							</ul>
 							<form action="" class="navbar-form navbar-left" role="search">
 								<div class="from-group">
-									<input type="text" class="form-control" placeholder="Buscar">
+									<input type="text" class="form-control bg-gris txt-blanco" placeholder="Buscar">
 								</div>
 							</form>
 							<ul class="nav navbar-nav navbar-right">
 
-								<li class="active">
+								<li class="">
 									<a href="">
-										<span class="celeste-claro"><span class="glyphicon glyphicon-refresh"></span> Refrescar</span>
+										<span class="txt-celeste-claro"><span class="glyphicon glyphicon-refresh"></span> Refrescar</span>
 									</a>
 								</li>
 
-								<li><a href=""><span class="celeste-claro"><span class="glyphicon glyphicon-user"></span> 
-									<span id="nombreSesion">Mi Nombre</span></span></a></li>
+								<li><a href=""><span class="txt-celeste-claro"><span class="glyphicon glyphicon-user"></span> 
+									<span id="nombreSesion"><?php echo $_SESSION['nombreUser'];?></span></span></a></li>
 								<li>
 									<form action="admin.php" method="POST">
-										<button style="margin-top:8px" class="btn btn-danger" href="" id="cerrarSesion" name="cerrarSesion" value="1"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</button>
+										<button style="margin-top:8px" class="btn btn-warning" href="" id="cerrarSesion" name="cerrarSesion" value="1"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</button>
 									</form>
 									
 								</li>
@@ -109,10 +116,10 @@
 				</nav>
 
 		</header>
-		<div class="page-header celeste">
+		<div class="page-header">
 			<div class="container">
-				<h1>Hola, Nicolás! <small>Administra tus pedidos fácilmente desde el menú superior.</small></h1>
-				<span>Sesión iniciada el: 9 de junio de 1985 a las 9:21 pm</span>
+				<h1 class="txt-celeste-claro">Hola, <?php echo $_SESSION['nombreUser'];?> <small class="txt-blanco">Administra tus pedidos fácilmente desde el menú superior.</small></h1>
+				<span class="txt-gris-claro">Sesión iniciada el: <span class="txt-celeste-claro"><?php echo $_SESSION['fechaIniSes'];?></span></span>
 			</div>
 		  
 		</div>

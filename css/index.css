@@ -1,13 +1,22 @@
 
 /*CSS para colores*/
 .celeste{
-	color:#006F9B;
+	color:#00ABFF;
 }
 .rojo{
 	color:red;
 }
-.celeste-claro{
+.txt-celeste-claro{
 	color:#72FBFF;
+}
+.bg-gris{
+	background-color:#212121;
+}
+.txt-gris-claro{
+	color:#808080;
+}
+.txt-blanco{
+	color:#FFFFFF;
 }
 /*fin CSS para colores*/
 
