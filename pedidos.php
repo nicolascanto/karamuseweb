@@ -32,14 +32,14 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">	
 	<link rel="stylesheet" href="css/index.css">	
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script src="js/jquery.js"></script>
+	<script src="js/pedidos.js"></script>
 	<script src="js/admin.js"></script>		
 	<script type="text/javascript"> 
 		var e="<?php echo $e;?>";
 		var s="<?php echo $s;?>";
-		// alert(e+s);
+		cargarATocar(e,s);
+		cantidadPedidos(e,s);
 	</script>
 	<style>
 		body{
@@ -57,7 +57,26 @@
 </head>
 <body>
 	<div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4>Agregar pedido</h4>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+				      <input type="text" class="form-control" placeholder="Artista o canción">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Ir</button>
+				      </span>
+				    </div><!-- /input-group -->
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium illo voluptas quod rem fugit nulla veniam labore fugiat? Ad aut architecto consequatur fugit sed voluptatum eveniet voluptatem officia facere, ab!
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn btn-primary">Cerrar</button>
+				</div>
+			</div>
+		</div>
 	</div>
 <div class="container">
 		<header>		
@@ -77,12 +96,12 @@
 						<div class="collapse navbar-collapse" id="navbar-1">
 							<ul class="nav navbar-nav">
 
-								<li role="presentation">
+								<li role="presentation" class="active">
 									<a href="pedidos.php" id="ir_pedidos"><span class="txt-celeste-claro"><span class="glyphicon glyphicon-home"></span> Pedidos<span id="cantidadPedidos" class="badge"> 0</span></span></a>
 								</li>
 								<li role="presentation">
 									<a href="admin_catalog" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-										<span class="glyphicon glyphicon-pencil"></span> Administrar catálogo
+										<span class="txt-celeste-claro"><span class="glyphicon glyphicon-pencil"></span> Administrar catálogo</span>
 									</a>
 																	
 								</li>
@@ -119,7 +138,8 @@
       	<div class="panel panel-info">
 	        <div class="panel-heading">	                    
 		          <div class="btn-group pull-right" role="group" aria-label="...">		          	
-					  <a data-toggle="modal" href="#agregar" type="button" class="btn btn-default glyphicon glyphicon-plus"></a>
+					  
+					  <button data-toggle="modal" data-target="#agregar" type="button" class="btn btn-default glyphicon glyphicon-plus"></button>
 					  <a href="#" type="button" class="btn btn-default glyphicon glyphicon-refresh"></a>
 				  </div>
 				  <h4>Espera <span class="badge">42</span></h4>	
@@ -130,81 +150,21 @@
 		            <th class="col-xs-2">Ticket</th>
 		            <th class="col-xs-3">Artista</th>
 		            <th class="col-xs-3">Canción</th>
-		            <th class="col-xs-2">Fecha/Hora</th>
+		            <th class="col-xs-2">Fecha/ Hora</th>
 		            <th class="col-xs-2">Acción</th>
-
 		        </tr>
 		    </thead>
-		    <tbody>
-		    	<tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2"><div class="btn-group" role="group" aria-label="...">					  
-					  <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-arrow-down"></button>
-					  <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-eye-open"></button>
-					  <button type="button" class="btn btn-default btn-sm glyphicon glyphicon-trash"></button>
-					</div></td>
-		        </tr>
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>	
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>	
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>	
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>	
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>	
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>
-		        <tr>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-3">axax</td>
-			        <td class="col-xs-2">axax</td>
-			        <td class="col-xs-2">axax</td>
-		        </tr>		        			        
+		    <tbody id="contenidoATocar">
+		    	<!-- aqui va el contenido 	        		        			         -->
 		    </tbody>		  
 		</table>
 	</div>		
 </div>
 <div class="row">
-      	<div class="panel panel-default">
+      	<div class="panel panel-success">
 	        <div class="panel-heading">
 	          <h4>
-	            Lista tocados <span class="badge">33</span>
+	            Listos <span class="badge">33</span>
 	          </h4>
 	        </div> 
 		<table class="table table-hover table-fixed">
@@ -280,7 +240,9 @@
 	</div>		
 </div>
 </div>
-
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 <footer style="background:#404040;color:#808080">
 	<div class="container">

@@ -1,6 +1,5 @@
 <?php
-
-	//iniciar SESSION
+//iniciar SESSION
 	session_start();
 
 	if(!empty($_POST['cerrarSesion'])){
@@ -21,9 +20,10 @@
 	$e = $_SESSION['emailUser']; 
 	$s = $_SESSION['codSes'];
 	// echo "<script>console.log('esto es email:'".$e.")</script>";
-	echo '<script languaje="JavaScript"> var e="'.$e.'";var s="'.$s.'"</script>';
+	echo "<script type='text/javascript'> var e='".$e."';var s='".$s."'</script>";
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,16 +33,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/index.css">
-	<script type="text/javascript" src="js/admin.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">	
+	<link rel="stylesheet" href="css/index.css">	
 	<script src="js/jquery.js"></script>
-	<script type="text/javascript">	
-
-			cantidadPedidos(e,s);
-
-	</script>
-
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/admin.js"></script>
 	<style>
 		body{
 			padding-top:80px;
@@ -52,13 +48,13 @@
 		    height: 20px;
 		    bottom: 0;
 		    width: 100%;
-		}
+		}		
 	</style>
-
+	<script type="text/javascript"> var e=<?php echo $e;?>;var s=<?php echo $s;?></script>
 	<title>Karamuse Administrador</title>
 </head>
 <body>
-	<div class="container ">
+<div class="container">
 		<header>		
 				<nav class="navbar navbar-inverse navbar-fixed-top">
 					<div class="container-fluid">
@@ -113,24 +109,38 @@
 				</nav>
 
 		</header>
-		<div class="page-header">
-			<div class="container">
-				<h1 class="txt-gris">Hola, <?php echo $_SESSION['nombreUser'];?> <small class="txt-gris-claro">Administra tus pedidos fácilmente desde el menú superior.</small></h1>
-				<span class="txt-gris-claro">Código de sesión: <span class="txt-gris"><?php echo $_SESSION['codSes'];?></span>, iniciada el: <span class="txt-gris"><?php echo $_SESSION['fechaIniSes'];?></span></span>
-			</div>
+	<div class="container">
+		<div class="row">   
+		<table class="table table-hover">
+			<thead>
+		        <tr>
+		            <th>Ticket</th>
+		            <th>Artista</th>
+		            <th>Canción</th>
+		            <th>Fecha/Hora</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	<tr class="danger">
+			        <td>axax</td>
+			        <td>axax</td>
+			        <td>axax</td>
+			        <td>axax</td>
+		        </tr>
+		        <tr>
+			        <td>axax</td>
+			        <td>axax</td>
+			        <td>axax</td>
+			        <td>axax</td>
+		        </tr>
+		    </tbody>
+		    
 		  
-		</div>
-
-		<div class="container" id="ver_pedidos"></div>
-		
-	</div>
-	
-	
-	
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
+		</table>
+	</div>		
+</div>
+<br>
 </body>
-
 <footer style="background:#404040;color:#808080">
 	<div class="container">
 		<small>Desarrollado por Karamuse - 2015, Contacto: karamuseapp@gmail.com</small>
