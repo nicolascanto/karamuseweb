@@ -20,8 +20,6 @@
 	
 	$e = $_SESSION['emailUser']; 
 	$s = $_SESSION['codSes'];
-	// echo "<script>console.log('esto es email:'".$e.")</script>";
-	echo '<script languaje="JavaScript"> var e="'.$e.'";var s="'.$s.'"</script>';
 
 ?>
 <!DOCTYPE html>
@@ -35,13 +33,21 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/index.css">
-	<script type="text/javascript" src="js/admin.js"></script>
 	<script src="js/jquery.js"></script>
+	<script src="js/trunk8.js"></script>	
+	<script src="js/pedidos.js"></script>
+	<script src="js/admin.js"></script>	
+
+	
 	<script type="text/javascript">	
-
-			cantidadPedidos(e,s);
-
+			
+			window.onload = function(){
+				var e="<?php echo $e;?>";
+				var s="<?php echo $s;?>";
+				cantidadPedidos(e,s);	
+			}					
 	</script>
+
 
 	<style>
 		body{
@@ -77,12 +83,12 @@
 							<ul class="nav navbar-nav">
 
 								<li role="presentation">
-									<a href="pedidos.php" id="ir_pedidos"><span class="txt-celeste-claro"><span class="glyphicon glyphicon-home"></span> Pedidos<span id="cantidadPedidos" class="badge"> 0</span></span></a>
+									<a href="#" id="ir_pedidos" onClick="cargarPaginasEnContenedor('pedidos.php')" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+										<span class="txt-celeste-claro"><span class="glyphicon glyphicon-home"></span> Pedidos<span id="cantidadPedidos" class="badge"> 0</span></span></a>
 								</li>
 								<li role="presentation">
-									<a href="admin_catalog" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-										<span class="glyphicon glyphicon-pencil"></span> Administrar catálogo
-									</a>
+									<a href="#" id="btnAdminCatalogo" onClick="cargarPaginasEnContenedor('admin_catalogo.html')" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+										<span class="txt-celeste-claro"><span class="glyphicon glyphicon-pencil"></span> Administrar catálogo</span></a>
 																	
 								</li>
 							</ul>
@@ -92,12 +98,6 @@
 								</div>
 							</form>
 							<ul class="nav navbar-nav navbar-right">
-
-								<li class="">
-									<a href="">
-										<span class="txt-celeste-claro"><span class="glyphicon glyphicon-refresh"></span> Refrescar</span>
-									</a>
-								</li>
 
 								<li><a href=""><span class="txt-celeste-claro"><span class="glyphicon glyphicon-user"></span> 
 									<span id="nombreSesion"><?php echo $_SESSION['nombreUser'];?></span></span></a></li>
@@ -113,7 +113,8 @@
 				</nav>
 
 		</header>
-		<div class="page-header">
+
+		<div id="headerSaludo" class="page-header">
 			<div class="container">
 				<h1 class="txt-gris">Hola, <?php echo $_SESSION['nombreUser'];?> <small class="txt-gris-claro">Administra tus pedidos fácilmente desde el menú superior.</small></h1>
 				<span class="txt-gris-claro">Código de sesión: <span class="txt-gris"><?php echo $_SESSION['codSes'];?></span>, iniciada el: <span class="txt-gris"><?php echo $_SESSION['fechaIniSes'];?></span></span>
@@ -121,12 +122,18 @@
 		  
 		</div>
 
-		<div class="container" id="ver_pedidos"></div>
+		<div class="container" id="contenedor"></div>
 		
 	</div>
-	
-	
-	
+	<div id="modalCarga" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-body">
+					<p style="text-align: center">Cargando&hellip;</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
 </body>

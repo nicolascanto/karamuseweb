@@ -1,3 +1,20 @@
+$(document).ready(function(){
+
+    // cargarPaginasEnContenedor("#btnAdminCatalogo", "admin_catalogo.html"); //ya no va porque se hace a traves de un onClick
+    $('#modalCarga').modal('hide');
+});
+
+function cargarPaginasEnContenedor(urlCargar){
+    
+    $('#headerSaludo').hide();
+        $.ajax({
+            url: urlCargar,
+            success: function(data){
+                $('#contenedor').html(data);
+            }
+        });
+};
+
 function cantidadPedidos(emailBar,sesion){
   
   $.ajax({    
@@ -21,6 +38,7 @@ function cantidadPedidos(emailBar,sesion){
 
                 })
 }
+
 
 
 

@@ -5,11 +5,11 @@
 
 	$emailBar = $_POST['emailBar'];
 	$codSes = $_POST['sesion'];
-	
-	$sql = "select aTocar.codk, pedidos.numTick, pedidos.numMesa, pedidos.Estacion, aTocar.Interprete, aTocar.Cancion, aTocar.fecha, 
-	(select count(aTocar.codK) from aTocar join pedidos on pedidos.codK=aTocar.codK where atocar.emailBar='$emailBar' and pedidos.codSes=$codSes)
-	from aTocar join pedidos on pedidos.codK=aTocar.codK 
-	where atocar.emailBar='$emailBar' 
+
+	$sql = "select tocados.codk, pedidos.numTick, pedidos.numMesa, pedidos.Estacion, tocados.Interprete, tocados.Cancion, tocados.fecha, 
+	(select count(tocados.codK) from tocados join pedidos on pedidos.codK=tocados.codK where tocados.emailBar='$emailBar' and pedidos.codSes=$codSes)
+	from tocados join pedidos on pedidos.codK=tocados.codK 
+	where tocados.emailBar='$emailBar' 
 	and pedidos.codSes=$codSes order by pedidos.numTick asc";
 
 	$resultado = mysql_query($sql) or die('Error. '.mysql_error());

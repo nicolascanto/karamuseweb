@@ -21,11 +21,21 @@
 .txt-blanco{
 	color:#FFFFFF;
 }
+.bg-celeste{
+	background-color:#00ABFF;
+}
+.txt-celeste-info{
+	color:#3FB4D7;
+}
+.bg-celeste-info{
+	background-color:#3FB4D7;
+}
+
 /*fin CSS para colores*/
 
 /*hacer las tablas scrolleables*/
 .table-fixed thead {
-  width: 97%;
+  width: 100%;
 }
 .table-fixed tbody {
   height: 300px;
